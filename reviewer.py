@@ -50,7 +50,8 @@ def main():
         git_diff = "any file changes could be retrieved from the PR."
 
     # 4. Read the instructions
-    with open("reviewer-instructions.md", "r", encoding="utf-8") as f:
+    instructions_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reviewer-instructions.md")
+    with open(instructions_path, "r", encoding="utf-8") as f:
         system_prompt = f.read()
 
     # 5. Build the prompt and call the LLM
