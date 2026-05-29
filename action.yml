@@ -1,5 +1,5 @@
 # action.yml
-name: 'Oncoshot AI PR Reviewer'
+name: 'AI PR Reviewer'
 description: 'Automated PR Context and Documentation Reviewer using MedTech standards.'
 branding:
   icon: 'check-circle'
