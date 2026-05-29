@@ -1,0 +1,26 @@
+# action.yml
+name: 'Oncoshot AI PR Reviewer'
+description: 'Automated PR Context and Documentation Reviewer using MedTech standards.'
+branding:
+  icon: 'check-circle'
+  color: 'blue'
+
+inputs:
+  github_token:
+    description: 'The GITHUB_TOKEN to interact with the PR.'
+    required: true
+  openai_key:
+    description: 'The API Key for the LLM.'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    # On mappe les inputs définis ci-dessus vers les variables d'environnement du conteneur Docker
+    GITHUB_TOKEN: ${{ inputs.github_token }}
+    OPENAI_API_KEY: ${{ inputs.openai_key }}
+    # GitHub injecte automatiquement des variables contextuelles (ex: GITHUB_REPOSITORY) dans le runner,
+    # mais pour une action Docker, on doit explicitement relayer celles dont on a besoin :
+    GITHUB_REPOSITORY: ${{ github.repository }}
+    GITHUB_EVENT_PATH: ${{ github.event_path }}
