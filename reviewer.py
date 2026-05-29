@@ -7,7 +7,7 @@ from openai import OpenAI
 def main():
     # 1. Initialize environment variables (injected by GitHub Actions)
     gh_token = os.environ.get("GITHUB_TOKEN")
-    openai_key = os.environ.get("GITHUB_API_KEY")
+    openai_key = os.environ.get("OPENAI_API_KEY")
     repo_name = os.environ.get("GITHUB_REPOSITORY")
     event_path = os.environ.get("GITHUB_EVENT_PATH")
 
